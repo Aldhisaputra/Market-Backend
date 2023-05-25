@@ -27,8 +27,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'email', 'password',
-        'address','house','phoneNumber','city','roles'
+        'name',
+        'email',
+        'password',
+        'address',
+        'house',
+        'phoneNumber',
+        'city',
+        'roles'
     ];
 
     /**
@@ -71,4 +77,24 @@ class User extends Authenticatable
         return Carbon::parse($value)->timestamp;
     }
 
+
+	/**
+	 * The attributes that are mass assignable.
+	 * 
+	 * @return array<int, string>
+	 */
+	public function getFillable() {
+		return $this->fillable;
+	}
+	
+	/**
+	 * The attributes that are mass assignable.
+	 * 
+	 * @param array<int, string> $fillable The attributes that are mass assignable.
+	 * @return self
+	 */
+	public function setFillable($fillable): self {
+		$this->fillable = $fillable;
+		return $this;
+	}
 }
