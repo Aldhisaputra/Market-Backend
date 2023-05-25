@@ -102,8 +102,15 @@ class UserController extends Controller
         return ResponseFormatter::success($token, 'Token Revoked');
     }
 
+    public function fetch(Request $request)
+    {
+        return ResponseFormatter::success(
+            $request->user(),'Data Profile User Berhasil Diambil'
+        );
+    }
+
     //API Update Profile
-    /*public function updateProfile(Request $request)
+    public function updateProfile(Request $request)
     {
         $data = $request->all();
         $user = auth()->user();
@@ -111,6 +118,6 @@ class UserController extends Controller
 
         return ResponseFormatter::success($user, 'Profile Updated');
     }
-    */
+    
     
 }
