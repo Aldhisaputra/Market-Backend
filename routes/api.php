@@ -25,7 +25,7 @@ Route::post('user/photo', [UserController::class, 'UpdatePhoto']);
 Route::post('logout', [UserController::class, 'logout']);
 
 Route::get('transaction', [TransactionController::class, 'all']);
-
+Route::post('transaction/{id}', [TransactionController::class,'update']);
 });
 
 Route::post('login', [UserController::class, 'login']);
