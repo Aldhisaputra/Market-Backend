@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\API\FoodController;
+use App\Http\Controllers\API\TransactionController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Sentry\Tracing\Transaction;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,8 @@ Route::get('user', [UserController::class, 'login']);
 Route::post('login', [UserController::class, 'updateProfile']);
 Route::post('user/photo', [UserController::class, 'UpdatePhoto']);
 Route::post('logout', [UserController::class, 'logout']);
+
+Route::get('transaction', [TransactionController::class, 'all']);
 
 });
 
