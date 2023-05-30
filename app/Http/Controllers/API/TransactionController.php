@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Midtrans\Config;
 use Midtrans\Snap;
 
 class TransactionController extends Controller
@@ -88,7 +89,7 @@ class TransactionController extends Controller
         ]);
 
         //Konfigurasi Midtrans
-        config::$serverKey = config('service.midtrans.serverKey');
+        Config::$serverKey = config('service.midtrans.serverKey');
         config::$isProduction = config('service.midtrans.isProduction');
         config::$isSanitized = config('service.midtrans.isSanitized');
         config::$is3ds = config('service.midtrans.is3ds');
@@ -100,7 +101,7 @@ class TransactionController extends Controller
         $midtrans = [
             'transaction_detail' => [
                 'order_id' => $transaction->id,
-                'gross_amount' => $transaction->total,
+                'gross_amount' => (int) $transaction->total,
             ],
             'customer_detail' => [
                 'first_name' => $transaction->user->name,
