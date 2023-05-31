@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Midtrans\Config;
 use Midtrans\Snap;
 
+
 class TransactionController extends Controller
 {
     public function all(Request $request)
@@ -98,33 +99,15 @@ class TransactionController extends Controller
         $transaction = Transaction::with(['food','user'])->find($transaction->id);
 
         //Membuat transaktion midtrans
-        $midtrans = [
-            'transaction_detail' => [
-                'order_id' => $transaction->id,
-                'gross_amount' => (int) $transaction->total,
-            ],
-            'customer_detail' => [
-                'first_name' => $transaction->user->name,
-                'email' => $transaction->user->email,
-            ],
-            'enabled_payment' => ['gopay','bank_tranfer'],
-            'vtweb' =>[]
-        ];
+        
 
         //memanggil midtrans
-        try{
-            //ambil halaman payment midtrans
-            $paymentUrl = Snap::createTransaction($midtrans)->redirect_url;
-            $transaction->payment_url = $paymentUrl;
-            $transaction->save();
+       
 
             //mengembalikan data ke API
-            return ResponseFormatter::success($transaction, 'Tansaksi sukses');
+           
 
-        }
-        catch(Exception $e) {
-            return ResponseFormatter::error($e->getMessage(),'Transaksi gagal');
-        }
+       
         
     }
 
