@@ -31,7 +31,7 @@ class MidtransController extends Controller
         //Cari transaksi berdasarkan ID
         $transaction = transaction::findOrFail($order_id);
 
-        //hansle notifikasi status midtran
+        //handle notifikasi status midtran
         if($status == 'capture')
         {
             if($type == 'credit_card')
