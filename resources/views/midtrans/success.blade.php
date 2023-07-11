@@ -18,7 +18,7 @@
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 selection:bg-red-500 selection:text-white">
             <p class="text-lg">
-                Transaksi dibuat. silahkan melakukan pembayaran sesuai langkah tercantum.
+                Transaksi dibuat. Silahkan melakukan pembayaran sesuai langkah tercantum 
             </p>
         </div>
     </body>

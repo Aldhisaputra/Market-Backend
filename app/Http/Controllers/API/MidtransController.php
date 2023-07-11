@@ -74,7 +74,7 @@ class MidtransController extends Controller
 
     public function success()
     {
-        return view('midtrans.succes');
+        return view('midtrans.success');
     }
 
     public function unfinish()
